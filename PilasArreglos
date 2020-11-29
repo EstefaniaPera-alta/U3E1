@@ -1,0 +1,66 @@
+package Unidad3;
+import java.util.Scanner;
+
+public class PilasArreglos {
+    public void Eliminar(int[] numeros, int cont)
+    {
+        
+        numeros[cont-1]=0;
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+        int opcion, cont = 1;
+        boolean continuar = true;
+        int[] numeros = new int[100];
+        PilasArreglos pila = new PilasArreglos();
+
+        while (continuar) {
+            System.out.println("Este es el menú \n1.Inserta \n2.Eliminar \n3.Mostrar \n4.Salir");
+            System.out.println("Elige una opcion");
+            opcion = leer.nextInt();
+            System.out.println("--------------");
+            // PILA: PRIMERO QUE ENTTRA ULTIMO EN SALIR
+            switch (opcion) {
+                case 1:
+                    for (int i = 1; i <= 10; i++) {
+                        int valorE = (int) (Math.random() * (500 - 50) + 50);
+                        numeros[cont] = valorE;
+                        System.out.println(cont + ". " + numeros[cont]);
+                        cont++;
+                    }
+                    System.out.println("--------------");
+                    break;
+                case 2:
+
+                    pila.Eliminar(numeros, cont);
+                    cont=cont-1;
+                    System.out.println("--------------");
+                    break;
+                case 3:
+                    //if(numeros.length-1==0)
+                    //{
+                      //  System.out.println("Aun no hay numeros");
+                    //}
+
+                        for (int i=cont-1; i>=0; i--) {
+                            if(numeros[i]==0){
+                            System.out.print("");
+                            }else{
+                                System.out.println(i+". "+numeros[i]);
+                            }
+                        }
+                    
+                    System.out.println("--------------");
+                    break;
+                case 4:
+                    continuar = false;
+                    break;
+                default: System.out.println("Valor invalido");
+                    break;
+            }
+        }
+    }
+
+}
